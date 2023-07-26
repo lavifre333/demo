@@ -24,7 +24,7 @@ steps:
     args:
       - docker
       - build
-      - --tag
+      - -t
       - ${_REGION}-docker.pkg.dev/$PROJECT_ID/demo/demo:$COMMIT_SHA
       - .
 
