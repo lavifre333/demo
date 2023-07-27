@@ -1,22 +1,7 @@
 steps:
-  - id: get-kube-config
-    dir: hello-cloudbuild-v2
-    name: gcr.io/cloud-builders/kubectl
-    env:
-      - CLOUDSDK_CORE_PROJECT=$PROJECT_ID
-      - CLOUDSDK_COMPUTE_REGION=${_REGION}
-      - CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}
-      - KUBECONFIG=/workspace/.kube/config
-    args:
-      - cluster-info
-
   - id: deploy
     dir: hello-cloudbuild-v2
     name: gcr.io/gitops-lab-394015/helm:3.12.0
-    env:
-      - KUBECONFIG=/workspace/.kube/config
-      - CLOUDSDK_COMPUTE_ZONE=me-west1-a
-      - CLOUDSDK_CONTAINER_CLUSTER=ggit-ops-lab
     args:
       - upgrade
       - --install
