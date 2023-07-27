@@ -16,7 +16,6 @@ steps:
     env:
       - KUBECONFIG=/workspace/.kube/config
     args:
-      - helm
       - upgrade
       - --install
       - --create-namespace
