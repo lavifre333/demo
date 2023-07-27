@@ -12,10 +12,11 @@ steps:
 
   - id: deploy
     dir: hello-cloudbuild-v2
-    name: gcr.io/gitops-lab-394015/helm
+    name: cloudnatived/helm-cloudbuilder
     env:
       - KUBECONFIG=/workspace/.kube/config
     args:
+      - helm
       - upgrade
       - --install
       - --create-namespace
